@@ -1,0 +1,22 @@
+.navbar {
+     height: 80px;
+}
+.btn-danger {
+     margin-left:10px;
+}
+.post {
+     margin-top: 20px;
+}
+.maincontent {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding:20%;
+     
+     
+}
+.maincontent a {
+     padding-top: 15px;
+     
+}
