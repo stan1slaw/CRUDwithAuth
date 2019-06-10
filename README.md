@@ -1,3 +1,4 @@
 # lastCRUD
-#nodemon server.js and in folder public 
-#npm start
+# nodemon server.js 
+and in folder public 
+# npm start
