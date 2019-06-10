@@ -6,16 +6,13 @@ import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
 class Register extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      password2: "",
-      errors: {}
-    };
-  }
+  state = {
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+    errors: {}
+  };
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {

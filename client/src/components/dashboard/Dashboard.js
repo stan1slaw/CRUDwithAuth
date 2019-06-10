@@ -40,7 +40,7 @@ class Dashboard extends Component {
         <Switch>
             <Route exact path='/create' component={ Create } />
             <Route path='/edit/:id' component={ Edit } />
-            <Route path='/posts' component={ Index } />
+            <Route path='/' component={ Index } />
         </Switch>
 
       </div>

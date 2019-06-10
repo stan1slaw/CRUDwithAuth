@@ -3,10 +3,8 @@ import axios from 'axios';
 import OnePost from './OnePost'
 export default class Index extends Component {
   _isMounted = false;
-    constructor(props) {
-        super(props);
-        this.state = {posts:[]}
-    }
+  state = {posts:[]}
+   
 
     componentDidMount(){
       this._isMounted = true;

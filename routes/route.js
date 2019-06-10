@@ -39,7 +39,7 @@ PostRoutes.route('/edit/:id').get(function (req, res) {
 PostRoutes.route('/update/:id').post(function (req, res) {
     Posts.findById(req.params.id, function(err, posts) {
     if (!posts)
-      res.status(404).send("data is not found");
+      res.status(404).json("data is not found");
     else {
         posts.title_name = req.body.title_name;
         posts.text_name = req.body.text_name;
@@ -48,7 +48,7 @@ PostRoutes.route('/update/:id').post(function (req, res) {
           res.json('Update complete');
       })
       .catch(err => {
-            res.status(400).send("unable to update the database");
+            res.status(400).json("unable to update the database");
       });
     }
   });

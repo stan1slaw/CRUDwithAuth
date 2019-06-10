@@ -5,14 +5,11 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      errors: {}
-    };
-  }
+  state = {
+    email: "",
+    password: "",
+    errors: {}
+  };
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
