@@ -1,75 +1,74 @@
-import React, { PureComponent } from 'react';
-import axios from 'axios';
+import React, { PureComponent } from "react";
+import axios from "axios";
 export default class Create extends PureComponent {
-   
-      state = {
-          title_name : '',
-          text_name : ''
-    }
-    onChangeTitle = (e) => {
-        this.setState({
-         title_name: e.target.value
-        });
-      }
-    onChangeText = (e)=> {
-        this.setState({
-            text_name: e.target.value
-        })
-    }
-    
-    onSubmit =(e)=> {
-        e.preventDefault();
-        const {title_name,text_name} = this.state
-        const obj = {
-            title_name: title_name,
-            text_name: text_name
-        }
-    axios.post('http://localhost:4000/posts/add', obj)
-        .then(res => console.log(res.data));
-    
+  state = {
+    title_name: "",
+    text_name: ""
+  };
+  onChangeTitle = e => {
     this.setState({
-      title_name: '',
-      text_name: ''
-    })
+      title_name: e.target.value
+    });
+  };
+  onChangeText = e => {
+    this.setState({
+      text_name: e.target.value
+    });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const { title_name, text_name } = this.state;
+    const obj = {
+      title_name: title_name,
+      text_name: text_name
+    };
+    axios
+      .post("http://localhost:4000/posts/add", obj)
+      .then(res => console.log(res.data));
+
+    this.setState({
+      title_name: "",
+      text_name: ""
+    });
+  };
+
+  render() {
+    const { title_name, text_name } = this.state;
+    return (
+      <div style={{ marginTop: 10 }}>
+        <h3>Add New Post</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label>Add Title:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={title_name}
+              onChange={this.onChangeTitle}
+              maxLength={30}
+              minLength={3}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Add Text: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={text_name}
+              onChange={this.onChangeText}
+              maxLength={140}
+              minLength={3}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <input type="submit" value="Add post" className="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+    );
   }
-    
-    
-    render() {
-        const {title_name,text_name} = this.state
-        return (
-
-                <div style={{marginTop: 10}}>
-                    <h3>Add New Post</h3>
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <label>Add Title:</label>
-                            <input type="text" className="form-control" 
-                            value={title_name}
-                            onChange={this.onChangeTitle}
-                            maxLength={30}
-                            minLength={3}
-                            
-                            required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Add Text: </label>
-                            <input type="text" className="form-control"
-                            value={text_name}
-                            onChange={this.onChangeText}
-                            maxLength={140}
-                            minLength={3}
-                            
-                            required
-                            />
-                        </div>
-                       
-                        <div className="form-group">
-                            <input type="submit" value="Add post" className="btn btn-primary"  />
-                        </div>
-                    </form>
-                </div>
-        )
-    }
-
 }
