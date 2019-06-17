@@ -16,13 +16,13 @@ PostRoutes.route('/add').post(function (req, res) {
 });
 
 
-PostRoutes.route('/').get(function (req, res) {
-    Posts.find(function(err, postes){
+PostRoutes.route('').get(function (req, res) {
+    Posts.find(function(err, posts){
     if(err){
       console.log(err);
     }
     else {
-      res.json(postes);
+      res.json(posts)
     }
   });
 });
@@ -58,7 +58,8 @@ PostRoutes.route('/update/:id').post(function (req, res) {
 PostRoutes.route('/delete/:id').get(function (req, res) {
     Posts.findByIdAndRemove({_id: req.params.id}, function(err, posts){
         if(err) res.json(err);
-        else res.json('Successfully removed');
+        else res.json({ removedId: req.params.id }) 
+        console.log(req.params);
     });
 });
 

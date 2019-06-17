@@ -1,6 +1,9 @@
 {
   "name": "mern-auth",
   "version": "1.0.0",
+  "eslintConfig": {
+    "extends": "eslint:recommended"
+  },
   "description": "Mern Auth Example",
   "main": "server.js",
   "scripts": {
@@ -23,6 +26,12 @@
     "mongoose": "^5.3.11",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^10.9.0"
+    "validator": "^10.9.0",
+    "yarn": "^1.16.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
   }
 }
